@@ -56,7 +56,7 @@
 	</bean>
 
 	<alias alias="userMatchingFilter" name="defaultUserMatchingFilter" />
-	<bean id="defaultUserMatchingFilter" class="com.ta.petro.v2.filter.UserMatchingFilter">
+	<bean id="defaultUserMatchingFilter" class="com.ta.petro.core.v2.filter.UserMatchingFilter">
 		<property name="regexp" value="^/[^/]+/(?:users|orgUsers)/([^/]+)" />
 		<property name="userService" ref="userService" />
 		<property name="sessionService" ref="sessionService" />
@@ -68,35 +68,35 @@
 		<property name="sessionService" ref="sessionService" />
 	</bean>
 
-	<bean id="commerceWebServicesEurope1AttributesFilterV2" class="com.ta.petro.filter.Europe1AttributesFilter">
+	<bean id="commerceWebServicesEurope1AttributesFilterV2" class="com.ta.petro.core.filter.Europe1AttributesFilter">
 		<property name="baseStoreService" ref="baseStoreService" />
 		<property name="sessionService" ref="sessionService" />
 	</bean>
 
-	<bean id="commerceWebServicesSessionCurrencyFilterV2" class="com.ta.petro.filter.SessionCurrencyFilter">
+	<bean id="commerceWebServicesSessionCurrencyFilterV2" class="com.ta.petro.core.filter.SessionCurrencyFilter">
 		<property name="contextInformationLoader" ref="wsContextInformationLoaderV2" />
 	</bean>
 
-	<bean id="commerceWebServicesSessionLanguageFilterV2" class="com.ta.petro.filter.SessionLanguageFilter">
+	<bean id="commerceWebServicesSessionLanguageFilterV2" class="com.ta.petro.core.filter.SessionLanguageFilter">
 		<property name="contextInformationLoader" ref="wsContextInformationLoaderV2"/>
 		<property name="i18nService" ref="i18nService"/>
 		<property name="enableLanguageFallback" value="true"/>
 	</bean>
 
 	<alias alias="cartMatchingFilter" name="defaultCartMatchingFilter" />
-	<bean id="defaultCartMatchingFilter" class="com.ta.petro.v2.filter.CartMatchingFilter">
+	<bean id="defaultCartMatchingFilter" class="com.ta.petro.core.v2.filter.CartMatchingFilter">
 		<property name="regexp" value="^/[^/]+/(?:users|orgUsers)/[^/]+/carts/([^/]+)" />
 		<property name="cartLoaderStrategy" ref="cartLoaderStrategy" />
 		<property name="cartRefreshedByDefault" value="${tapetrowebservices.cart.refreshed.by.default}" />
 	</bean>
 
 	<alias alias="baseSiteMatchingFilter" name="defaultBaseSiteMatchingFilter" />
-	<bean id="defaultBaseSiteMatchingFilter" class="com.ta.petro.v2.filter.BaseSiteMatchingFilter">
+	<bean id="defaultBaseSiteMatchingFilter" class="com.ta.petro.core.v2.filter.BaseSiteMatchingFilter">
 		<property name="regexp" value="^/(?!(swagger)|(.*api-docs)|(csrf)|(webjars))([^/]+)" />
 		<property name="baseSiteService" ref="baseSiteService" />
 	</bean>
 
-	<bean id="commerceWebServicesConsentFilterV2" class="com.ta.petro.filter.ConsentFilter">
+	<bean id="commerceWebServicesConsentFilterV2" class="com.ta.petro.core.filter.ConsentFilter">
 		<property name="userFacade" ref="userFacade"/>
 		<property name="baseSiteService" ref="baseSiteService"/>
 		<property name="anonymousConsentFacade" ref="anonymousConsentFacade"/>
@@ -104,7 +104,7 @@
 		<property name="populatingConsentsEnabled" value="true"/>
 	</bean>
 
-	<bean id="guestRoleFilterV2" class="com.ta.petro.auth.GuestRoleFilter">
+	<bean id="guestRoleFilterV2" class="com.ta.petro.core.auth.GuestRoleFilter">
 		<property name="authenticationEventPublisher">
 			<bean class="org.springframework.security.authentication.DefaultAuthenticationEventPublisher" />
 		</property>
@@ -121,7 +121,7 @@
 	</bean>
 
 	<alias name="defaultWsContextInformationLoaderV2" alias="wsContextInformationLoaderV2" />
-	<bean id="defaultWsContextInformationLoaderV2" class="com.ta.petro.context.impl.DefaultContextInformationLoader">
+	<bean id="defaultWsContextInformationLoaderV2" class="com.ta.petro.core.context.impl.DefaultContextInformationLoader">
 		<property name="baseSiteService" ref="baseSiteService" />
 		<property name="activateBaseSiteInSessionStrategy" ref="activateBaseSiteInSessionStrategy" />
 		<property name="configurationService" ref="configurationService" />

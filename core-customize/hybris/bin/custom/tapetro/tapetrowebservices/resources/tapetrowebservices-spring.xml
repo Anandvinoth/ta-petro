@@ -144,7 +144,7 @@
 	</bean>
 
 	<alias name="defaultCommerceStockFacade" alias="commerceStockFacade"/>
-	<bean id="defaultCommerceStockFacade" class="com.ta.petro.stock.impl.DefaultCommerceStockFacade">
+	<bean id="defaultCommerceStockFacade" class="com.ta.petro.core.stock.impl.DefaultCommerceStockFacade">
 		<property name="baseSiteService" ref="baseSiteService"/>
 		<property name="commerceStockService" ref="commerceStockService"/>
 		<property name="pointOfServiceService" ref="pointOfServiceService"/>
@@ -154,9 +154,9 @@
 
 	<alias name="defaultBaseStoreForSiteSelectorStrategy" alias="baseStoreForSiteSelectorStrategy"/>
 	<bean id="defaultBaseStoreForSiteSelectorStrategy"
-			class="com.ta.petro.strategies.impl.DefaultBaseStoreForSiteSelectorStrategy"/>
+			class="com.ta.petro.core.strategies.impl.DefaultBaseStoreForSiteSelectorStrategy"/>
 
-	<bean id="commerceWebServicesCartFacade2" class="com.ta.petro.cart.impl.CommerceWebServicesCartFacade"
+	<bean id="commerceWebServicesCartFacade2" class="com.ta.petro.core.cart.impl.CommerceWebServicesCartFacade"
 	      parent="defaultCartFacade">
 		<property name="cartConverter" ref="extendedCartConverter"/>
 		<property name="commerceCartService" ref="commerceWebServicesCartService"/>
@@ -165,7 +165,7 @@
 	<!-- Populator for title name -->
 	<alias name="defaultExtendedCustomerPopulator" alias="extendedCustomerPopulator"/>
 	<bean id="defaultExtendedCustomerPopulator"
-			class="com.ta.petro.customer.populator.ExtendedCustomerPopulator">
+			class="com.ta.petro.core.customer.populator.ExtendedCustomerPopulator">
 		<property name="addressConverter" ref="addressConverter"/>
 	</bean>
 
@@ -177,18 +177,18 @@
 	<!-- Update Queues -->
 
 	<bean id="abstractUpdateQueue"
-			class="com.ta.petro.queues.impl.AbstractUpdateQueue" abstract="true">
+			class="com.ta.petro.core.queues.impl.AbstractUpdateQueue" abstract="true">
 		<property name="maxCapacity" value="100000"/>
 	</bean>
 
 	<!--Express Update Queue functionality-->
 
 	<bean id="productExpressUpdateQueue"
-			class="com.ta.petro.queues.impl.ProductExpressUpdateQueue"
+			class="com.ta.petro.core.queues.impl.ProductExpressUpdateQueue"
 			parent="abstractUpdateQueue"/>
 
 	<bean id="productExpressUpdateChannelListener"
-			class="com.ta.petro.queues.channel.ProductExpressUpdateChannelListener">
+			class="com.ta.petro.core.queues.channel.ProductExpressUpdateChannelListener">
 		<property name="productExpressUpdateElementConverter" ref="productExpressUpdateElementConverter"/>
 		<property name="productExpressUpdateQueue" ref="productExpressUpdateQueue"/>
 	</bean>
@@ -198,11 +198,11 @@
 								  method="onMessage"/>
 
 	<bean id="productExpressUpdateElementData"
-			class="com.ta.petro.queues.data.ProductExpressUpdateElementData" scope="prototype"/>
+			class="com.ta.petro.core.queues.data.ProductExpressUpdateElementData" scope="prototype"/>
 
 	<alias name="defaultProductExpressUpdateElementPopulator" alias="productExpressUpdateElementPopulator"/>
 	<bean id="defaultProductExpressUpdateElementPopulator"
-			class="com.ta.petro.queues.populators.ProductExpressUpdateElementPopulator"/>
+			class="com.ta.petro.core.queues.populators.ProductExpressUpdateElementPopulator"/>
 
 	<alias name="defaultProductExpressUpdateElementConverter" alias="productExpressUpdateElementConverter"/>
 	<bean id="defaultProductExpressUpdateElementConverter" parent="abstractPopulatingConverter">
@@ -215,7 +215,7 @@
 	</bean>
 
 	<bean id="productExpressUpdateCleanerJob"
-			class="com.ta.petro.queues.cronjob.ProductExpressUpdateCleanerJob"
+			class="com.ta.petro.core.queues.cronjob.ProductExpressUpdateCleanerJob"
 			parent="abstractJobPerformable">
 		<property name="productExpressUpdateQueue" ref="productExpressUpdateQueue"/>
 	</bean>
@@ -223,11 +223,11 @@
 	<!-- Order Status Update Queue -->
 
 	<bean id="orderStatusUpdateQueue"
-			class="com.ta.petro.queues.impl.OrderStatusUpdateQueue"
+			class="com.ta.petro.core.queues.impl.OrderStatusUpdateQueue"
 			parent="abstractUpdateQueue"/>
 
 	<bean id="orderStatusUpdateChannelListener"
-			class="com.ta.petro.queues.channel.OrderStatusUpdateChannelListener">
+			class="com.ta.petro.core.queues.channel.OrderStatusUpdateChannelListener">
 		<property name="orderStatusUpdateElementConverter" ref="orderStatusUpdateElementConverter"/>
 		<property name="orderStatusUpdateQueue" ref="orderStatusUpdateQueue"/>
 	</bean>
@@ -237,11 +237,11 @@
 								  method="onMessage"/>
 
 	<bean id="orderStatusUpdateElementData"
-			class="com.ta.petro.queues.data.OrderStatusUpdateElementData" scope="prototype"/>
+			class="com.ta.petro.core.queues.data.OrderStatusUpdateElementData" scope="prototype"/>
 
 	<alias name="defaultOrderStatusUpdateElementPopulator" alias="orderStatusUpdateElementPopulator"/>
 	<bean id="defaultOrderStatusUpdateElementPopulator"
-			class="com.ta.petro.queues.populators.OrderStatusUpdateElementPopulator"/>
+			class="com.ta.petro.core.queues.populators.OrderStatusUpdateElementPopulator"/>
 
 	<alias name="defaultProductExpressUpdateElementConverter" alias="orderStatusUpdateElementConverter"/>
 	<bean id="defaultOrderStatusUpdateElementConverter" parent="abstractPopulatingConverter">
@@ -254,13 +254,13 @@
 	</bean>
 
 	<bean id="orderStatusUpdateCleanerJob"
-			class="com.ta.petro.queues.cronjob.OrderStatusUpdateCleanerJob"
+			class="com.ta.petro.core.queues.cronjob.OrderStatusUpdateCleanerJob"
 			parent="abstractJobPerformable">
 		<property name="orderStatusUpdateQueue" ref="orderStatusUpdateQueue"/>
 	</bean>
 
 	<!-- Old cart cleaner -->
-	<bean id="oldCartRemovalJob" class="com.ta.petro.cronjob.OldCartRemovalJob"
+	<bean id="oldCartRemovalJob" class="com.ta.petro.core.cronjob.OldCartRemovalJob"
 			parent="abstractJobPerformable">
 		<property name="commerceCartDao" ref="commerceCartDao"/>
 		<property name="timeService" ref="timeService"/>
@@ -268,7 +268,7 @@
 	</bean>
 
     <alias alias="orderCodeIdentificationStrategy" name="defaultOrderCodeIdentificationStrategy"/>
-    <bean id="defaultOrderCodeIdentificationStrategy" class="com.ta.petro.strategies.impl.DefaultOrderCodeIdentificationStrategy">
+    <bean id="defaultOrderCodeIdentificationStrategy" class="com.ta.petro.core.strategies.impl.DefaultOrderCodeIdentificationStrategy">
         <property name="idPattern" value="[0-9a-f]{40}|[0-9a-f-]{36}"/>
     </bean>
 

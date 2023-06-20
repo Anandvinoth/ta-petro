@@ -6,13 +6,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="messageSource" class="com.ta.petro.util.ws.impl.MessageSourceComposite">
+	<bean id="messageSource" class="com.ta.petro.core.util.ws.impl.MessageSourceComposite">
 		<constructor-arg name="addonAwareMessageSource" ref="addonAwareMessageSource"/>
 		<constructor-arg name="classpathAwareMessageSource" ref="classpathAwareMessageSource"/>
 		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
 
-	<bean id="addonAwareMessageSource" class="com.ta.petro.util.ws.impl.AddonAwareMessageSource">
+	<bean id="addonAwareMessageSource" class="com.ta.petro.core.util.ws.impl.AddonAwareMessageSource">
 		<property name="baseAddonDir" value="/WEB-INF/messages/addons/" />
 		<property name="basenames">
 			<list>
@@ -23,7 +23,7 @@
 	</bean>
 
 	<bean id="classpathAwareMessageSource"
-		  class="com.ta.petro.util.ws.impl.ClasspathAwareMessageSource">
+		  class="com.ta.petro.core.util.ws.impl.ClasspathAwareMessageSource">
 		<constructor-arg name="baseOccExtensionDir" value="/occ/v2/*occ/messages/"/>
 		<property name="defaultEncoding" value="UTF-8"/>
 	</bean>
@@ -55,14 +55,14 @@
 	</bean>
 
 	<alias alias="cartVoucherValidationErrorConverter" name="defaultCartVoucherValidationErrorConverter" />
-	<bean name="defaultCartVoucherValidationErrorConverter" class="com.ta.petro.errors.converters.CartVoucherValidationErrorConverter">
+	<bean name="defaultCartVoucherValidationErrorConverter" class="com.ta.petro.core.errors.converters.CartVoucherValidationErrorConverter">
 		<constructor-arg ref="i18NService" />
 		<constructor-arg ref="messageSource" />
 		<property name="targetClass" value="de.hybris.platform.webservicescommons.dto.error.ErrorWsDTO"/>
 	</bean>
 
 	<alias alias="cartVoucherValidationListErrorConverter" name="defaultCartVoucherValidationListErrorConverter" />
-	<bean name="defaultCartVoucherValidationListErrorConverter" class="com.ta.petro.errors.converters.CartVoucherValidationListErrorConverter">
+	<bean name="defaultCartVoucherValidationListErrorConverter" class="com.ta.petro.core.errors.converters.CartVoucherValidationListErrorConverter">
 		<constructor-arg ref="cartVoucherValidationErrorConverter" />
 	</bean>
 
@@ -70,13 +70,13 @@
 	<bean name="defaultWebserviceExceptionConverter" class="de.hybris.platform.webservicescommons.errors.converters.WebserviceExceptionConverter" />
 
 	<alias alias="cartModificationDataErrorConverter" name="defaultCartModificationDataErrorConverter" />
-	<bean name="defaultCartModificationDataErrorConverter" class="com.ta.petro.errors.converters.CartModificationDataErrorConverter"
+	<bean name="defaultCartModificationDataErrorConverter" class="com.ta.petro.core.errors.converters.CartModificationDataErrorConverter"
 		parent="abstractLocalizedErrorConverter">
 		<property name="commerceCommonI18NService" ref="commerceCommonI18NService" />
 	</bean>
 
 	<alias alias="cartModificationDataListErrorConverter" name="defaultCartModificationDataListErrorConverter" />
-	<bean name="defaultCartModificationDataListErrorConverter" class="com.ta.petro.errors.converters.CartModificationDataListErrorConverter">
+	<bean name="defaultCartModificationDataListErrorConverter" class="com.ta.petro.core.errors.converters.CartModificationDataListErrorConverter">
 		<property name="cartModificationDataErrorConverter" ref="cartModificationDataErrorConverter" />
 	</bean>
 </beans>

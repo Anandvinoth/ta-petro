@@ -9,13 +9,13 @@
 		http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<alias name="defaultWsDateFormatter" alias="wsDateFormatter" />
-	<bean id="defaultWsDateFormatter" class="com.ta.petro.formatters.impl.DefaultWsDateFormatter" />
+	<bean id="defaultWsDateFormatter" class="com.ta.petro.core.formatters.impl.DefaultWsDateFormatter" />
 
 	<!-- custom converters configuration -->
 
-	<bean id="converterPostProcessor" class="com.ta.petro.conv.ConverterPostProcessor">
+	<bean id="converterPostProcessor" class="com.ta.petro.core.conv.ConverterPostProcessor">
 		<constructor-arg name="xStream">
-			<bean class="com.ta.petro.xstream.XmlXStreamFactory" />
+			<bean class="com.ta.petro.core.xstream.XmlXStreamFactory" />
 		</constructor-arg>
 	</bean>
 
@@ -23,13 +23,13 @@
 	<bean class="de.hybris.platform.commercefacades.xstream.conv.TypeConverterMapping">
 		<property name="aliasedClass" value="de.hybris.platform.commercefacades.product.data.PriceData" />
 		<property name="converter">
-			<bean class="com.ta.petro.conv.PriceDataValueConverter" />
+			<bean class="com.ta.petro.core.conv.PriceDataValueConverter" />
 		</property>
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.conv.TypeConverterMapping">
 		<property name="converter">
-			<bean class="com.ta.petro.conv.StringValueConverter">
+			<bean class="com.ta.petro.core.conv.StringValueConverter">
 				<property name="limit" value="500" />
 			</bean>
 		</property>
@@ -37,12 +37,12 @@
 
 	<bean class="de.hybris.platform.commercefacades.xstream.conv.TypeConverterMapping">
 		<property name="converter">
-			<bean class="com.ta.petro.conv.Oauth2AccessTokenConverter" />
+			<bean class="com.ta.petro.core.conv.Oauth2AccessTokenConverter" />
 		</property>
 	</bean>
 	<bean class="de.hybris.platform.commercefacades.xstream.conv.TypeConverterMapping">
 		<property name="converter">
-			<bean class="com.ta.petro.conv.SearchQueryDataConverter">
+			<bean class="com.ta.petro.core.conv.SearchQueryDataConverter">
 				<property name="solrSearchQueryEncoder" ref="solrSearchQueryEncoder" />
 			</bean>
 		</property>
@@ -67,37 +67,37 @@
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="languages" />
-		<property name="aliasedClass" value="com.ta.petro.storesession.data.LanguageDataList" />
+		<property name="aliasedClass" value="com.ta.petro.core.storesession.data.LanguageDataList" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="currencies" />
-		<property name="aliasedClass" value="com.ta.petro.storesession.data.CurrencyDataList" />
+		<property name="aliasedClass" value="com.ta.petro.core.storesession.data.CurrencyDataList" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="countries" />
-		<property name="aliasedClass" value="com.ta.petro.user.data.CountryDataList" />
+		<property name="aliasedClass" value="com.ta.petro.core.user.data.CountryDataList" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="cardTypes" />
-		<property name="aliasedClass" value="com.ta.petro.order.data.CardTypeDataList" />
+		<property name="aliasedClass" value="com.ta.petro.core.order.data.CardTypeDataList" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="reviews" />
-		<property name="aliasedClass" value="com.ta.petro.product.data.ReviewDataList" />
+		<property name="aliasedClass" value="com.ta.petro.core.product.data.ReviewDataList" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="addresses" />
-		<property name="aliasedClass" value="com.ta.petro.user.data.AddressDataList" />
+		<property name="aliasedClass" value="com.ta.petro.core.user.data.AddressDataList" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="export" />
-		<property name="aliasedClass" value="com.ta.petro.product.data.ProductDataList" />
+		<property name="aliasedClass" value="com.ta.petro.core.product.data.ProductDataList" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
@@ -287,7 +287,7 @@
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="titles" />
-		<property name="aliasedClass" value="com.ta.petro.user.data.TitleDataList" />
+		<property name="aliasedClass" value="com.ta.petro.core.user.data.TitleDataList" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
@@ -327,12 +327,12 @@
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="logout" />
-		<property name="aliasedClass" value="com.ta.petro.auth.data.LogoutResponse" />
+		<property name="aliasedClass" value="com.ta.petro.core.auth.data.LogoutResponse" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="suggestions" />
-		<property name="aliasedClass" value="com.ta.petro.product.data.SuggestionDataList" />
+		<property name="aliasedClass" value="com.ta.petro.core.product.data.SuggestionDataList" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
@@ -371,7 +371,7 @@
 	</bean>
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="loginChange" />
-		<property name="aliasedClass" value="com.ta.petro.user.data.LoginChangeResponse" />
+		<property name="aliasedClass" value="com.ta.petro.core.user.data.LoginChangeResponse" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
@@ -382,7 +382,7 @@
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="passwordRestore" />
-		<property name="aliasedClass" value="com.ta.petro.user.data.PasswordRestoreResponse" />
+		<property name="aliasedClass" value="com.ta.petro.core.user.data.PasswordRestoreResponse" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
@@ -412,22 +412,22 @@
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="product" />
-		<property name="aliasedClass" value="com.ta.petro.queues.data.ProductExpressUpdateElementData" />
+		<property name="aliasedClass" value="com.ta.petro.core.queues.data.ProductExpressUpdateElementData" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="expressUpdate" />
-		<property name="aliasedClass" value="com.ta.petro.queues.data.ProductExpressUpdateElementDataList" />
+		<property name="aliasedClass" value="com.ta.petro.core.queues.data.ProductExpressUpdateElementDataList" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="order" />
-		<property name="aliasedClass" value="com.ta.petro.queues.data.OrderStatusUpdateElementData" />
+		<property name="aliasedClass" value="com.ta.petro.core.queues.data.OrderStatusUpdateElementData" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="statusFeed" />
-		<property name="aliasedClass" value="com.ta.petro.queues.data.OrderStatusUpdateElementDataList" />
+		<property name="aliasedClass" value="com.ta.petro.core.queues.data.OrderStatusUpdateElementDataList" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
@@ -437,7 +437,7 @@
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="promotions" />
-		<property name="aliasedClass" value="com.ta.petro.product.data.PromotionDataList" />
+		<property name="aliasedClass" value="com.ta.petro.core.product.data.PromotionDataList" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
@@ -482,14 +482,14 @@
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.TypeAliasMapping">
 		<property name="alias" value="addressValidation" />
-		<property name="aliasedClass" value="com.ta.petro.validation.data.AddressValidationData" />
+		<property name="aliasedClass" value="com.ta.petro.core.validation.data.AddressValidationData" />
 	</bean>
 
 	<!-- attribute converters -->
 	<bean class="de.hybris.platform.commercefacades.xstream.conv.AttributeConverterMapping">
 		<property name="aliasedClass" value="de.hybris.platform.commercefacades.product.data.ProductData" />
 		<property name="converter">
-			<bean class="com.ta.petro.conv.StringValueConverter">
+			<bean class="com.ta.petro.core.conv.StringValueConverter">
 				<property name="limit" value="500" />
 			</bean>
 		</property>
@@ -499,7 +499,7 @@
 	<bean class="de.hybris.platform.commercefacades.xstream.conv.AttributeConverterMapping">
 		<property name="aliasedClass" value="de.hybris.platform.commercefacades.order.data.AbstractOrderData" />
 		<property name="converter">
-			<bean class="com.ta.petro.conv.VoucherConverter" />
+			<bean class="com.ta.petro.core.conv.VoucherConverter" />
 		</property>
 		<property name="attributeName" value="appliedVouchers" />
 	</bean>
@@ -543,7 +543,7 @@
 	<bean class="de.hybris.platform.commercefacades.xstream.conv.AttributeConverterMapping">
 		<property name="aliasedClass" value="de.hybris.platform.commercefacades.storelocator.data.PointOfServiceData" />
 		<property name="converter">
-			<bean class="com.ta.petro.conv.FeaturesMapConverter">
+			<bean class="com.ta.petro.core.conv.FeaturesMapConverter">
 			</bean>
 		</property>
 		<property name="attributeName" value="features" />
@@ -553,7 +553,7 @@
 	<bean class="de.hybris.platform.commercefacades.xstream.conv.AttributeConverterMapping">
 		<property name="aliasedClass" value="de.hybris.platform.commercefacades.storelocator.data.PointOfServiceData" />
 		<property name="converter">
-			<bean class="com.ta.petro.conv.FeaturesMapConverter">
+			<bean class="com.ta.petro.core.conv.FeaturesMapConverter">
 			</bean>
 		</property>
 		<property name="attributeName" value="features" />
@@ -562,7 +562,7 @@
 	<bean class="de.hybris.platform.commercefacades.xstream.conv.AttributeConverterMapping">
 		<property name="aliasedClass" value="de.hybris.platform.commerceservices.search.facetdata.FacetData" />
 		<property name="converter">
-			<bean class="com.ta.petro.conv.FacetValueDataListConverter">
+			<bean class="com.ta.petro.core.conv.FacetValueDataListConverter">
 			</bean>
 		</property>
 		<property name="attributeName" value="values" />
@@ -571,7 +571,7 @@
 	<bean class="de.hybris.platform.commercefacades.xstream.conv.AttributeConverterMapping">
 		<property name="aliasedClass" value="de.hybris.platform.commerceservices.search.facetdata.FacetData" />
 		<property name="converter">
-			<bean class="com.ta.petro.conv.FacetValueDataListConverter">
+			<bean class="com.ta.petro.core.conv.FacetValueDataListConverter">
 			</bean>
 		</property>
 		<property name="attributeName" value="topValues" />
@@ -580,13 +580,13 @@
 	<bean class="de.hybris.platform.commercefacades.xstream.conv.AttributeConverterMapping">
 		<property name="aliasedClass" value="de.hybris.platform.commerceservices.search.facetdata.ProductSearchPageData" />
 		<property name="converter">
-			<bean class="com.ta.petro.conv.SpellingSuggestionDataConverter">
+			<bean class="com.ta.petro.core.conv.SpellingSuggestionDataConverter">
 			</bean>
 		</property>
 		<property name="attributeName" value="spellingSuggestion" />
 	</bean>
 
-	<bean id="customDateConverter" class="com.ta.petro.conv.CustomDateConverter">
+	<bean id="customDateConverter" class="com.ta.petro.core.conv.CustomDateConverter">
 		<property name="wsDateFormatter" ref="wsDateFormatter" />
 	</bean>
 
@@ -594,7 +594,7 @@
 	<bean class="de.hybris.platform.commercefacades.xstream.conv.AttributeConverterMapping">
 		<property name="aliasedClass" value="de.hybris.platform.commercefacades.product.data.ImageData" />
 		<property name="converter">
-			<bean class="com.ta.petro.conv.ImageUrlConverter"/>
+			<bean class="com.ta.petro.core.conv.ImageUrlConverter"/>
 		</property>
 		<property name="attributeName" value="url" />
 	</bean>
@@ -677,7 +677,7 @@
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.FieldAliasMapping">
 		<property name="alias" value="orders" />
 		<property name="fieldName" value="orderStatusUpdateElements" />
-		<property name="aliasedClass" value="com.ta.petro.queues.data.OrderStatusUpdateElementDataList" />
+		<property name="aliasedClass" value="com.ta.petro.core.queues.data.OrderStatusUpdateElementDataList" />
 	</bean>
 
 	<!-- attribute aliases -->
@@ -768,7 +768,7 @@
 	<!-- Implicit collections -->
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.ImplicitCollection">
-		<property name="ownerType" value="com.ta.petro.user.data.TitleDataList" />
+		<property name="ownerType" value="com.ta.petro.core.user.data.TitleDataList" />
 		<property name="fieldName" value="titles" />
 	</bean>
 
@@ -778,27 +778,27 @@
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.ImplicitCollection">
-		<property name="ownerType" value="com.ta.petro.storesession.data.LanguageDataList" />
+		<property name="ownerType" value="com.ta.petro.core.storesession.data.LanguageDataList" />
 		<property name="fieldName" value="languages" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.ImplicitCollection">
-		<property name="ownerType" value="com.ta.petro.storesession.data.CurrencyDataList" />
+		<property name="ownerType" value="com.ta.petro.core.storesession.data.CurrencyDataList" />
 		<property name="fieldName" value="currencies" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.ImplicitCollection">
-		<property name="ownerType" value="com.ta.petro.user.data.CountryDataList" />
+		<property name="ownerType" value="com.ta.petro.core.user.data.CountryDataList" />
 		<property name="fieldName" value="countries" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.ImplicitCollection">
-		<property name="ownerType" value="com.ta.petro.order.data.CardTypeDataList" />
+		<property name="ownerType" value="com.ta.petro.core.order.data.CardTypeDataList" />
 		<property name="fieldName" value="cardTypes" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.ImplicitCollection">
-		<property name="ownerType" value="com.ta.petro.user.data.AddressDataList" />
+		<property name="ownerType" value="com.ta.petro.core.user.data.AddressDataList" />
 		<property name="fieldName" value="addresses" />
 	</bean>
 
@@ -823,7 +823,7 @@
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.ImplicitCollection">
-		<property name="ownerType" value="com.ta.petro.product.data.SuggestionDataList" />
+		<property name="ownerType" value="com.ta.petro.core.product.data.SuggestionDataList" />
 		<property name="fieldName" value="suggestions" />
 	</bean>
 
@@ -833,12 +833,12 @@
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.ImplicitCollection">
-		<property name="ownerType" value="com.ta.petro.product.data.PromotionDataList" />
+		<property name="ownerType" value="com.ta.petro.core.product.data.PromotionDataList" />
 		<property name="fieldName" value="promotions" />
 	</bean>
 
 	<bean class="de.hybris.platform.commercefacades.xstream.alias.ImplicitCollection">
-		<property name="ownerType" value="com.ta.petro.queues.data.OrderStatusUpdateElementDataList" />
+		<property name="ownerType" value="com.ta.petro.core.queues.data.OrderStatusUpdateElementDataList" />
 		<property name="fieldName" value="orderStatusUpdateElements" />
 	</bean>
 
@@ -853,14 +853,14 @@
 	</bean>
 
 	<!-- xstream , marshaller factory -->
-	<bean id="xmlXStreamMarshallerFactory" class="com.ta.petro.xstream.XmlXStreamMarshallerFactory">
+	<bean id="xmlXStreamMarshallerFactory" class="com.ta.petro.core.xstream.XmlXStreamMarshallerFactory">
 		<property name="XStream">
-			<bean class="com.ta.petro.xstream.XmlXStreamFactory" />
+			<bean class="com.ta.petro.core.xstream.XmlXStreamFactory" />
 		</property>
 	</bean>
-	<bean id="jsonXStreamMarshallerFactory" class="com.ta.petro.xstream.JsonXStreamMarshallerFactory">
+	<bean id="jsonXStreamMarshallerFactory" class="com.ta.petro.core.xstream.JsonXStreamMarshallerFactory">
 		<property name="XStream">
-			<bean class="com.ta.petro.xstream.JsonXStreamFactory" />
+			<bean class="com.ta.petro.core.xstream.JsonXStreamFactory" />
 		</property>
 		<property name="excludeClasses" ref="xstreamMarshallerExcludedClasses"/>
 	</bean>
@@ -868,8 +868,8 @@
 	<util:list id="xstreamMarshallerExcludedClasses">
  	</util:list>
 
-	<bean id="xmlXStreamFactory" class="com.ta.petro.xstream.XmlXStreamFactory" />
-	<bean id="jsonXStreamFactory" class="com.ta.petro.xstream.JsonXStreamFactory" />
+	<bean id="xmlXStreamFactory" class="com.ta.petro.core.xstream.XmlXStreamFactory" />
+	<bean id="jsonXStreamFactory" class="com.ta.petro.core.xstream.JsonXStreamFactory" />
 
 	<bean id="resolverXStreamXmlConverter" class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
 		<constructor-arg ref="xmlXStreamMarshallerFactory" />

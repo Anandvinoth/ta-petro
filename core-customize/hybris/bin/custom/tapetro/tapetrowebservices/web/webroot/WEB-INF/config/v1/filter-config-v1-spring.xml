@@ -43,32 +43,32 @@
 		
 	</util:list>
 
-	<bean id="commerceWebServicesBaseSiteFilterV1" class="com.ta.petro.filter.BaseSiteFilter">
+	<bean id="commerceWebServicesBaseSiteFilterV1" class="com.ta.petro.core.filter.BaseSiteFilter">
 		<property name="contextInformationLoader" ref="wsContextInformationLoaderV1" />
 	</bean>
 
-	<bean id="commerceWebServicesEurope1AttributesFilterV1" class="com.ta.petro.filter.Europe1AttributesFilter">
+	<bean id="commerceWebServicesEurope1AttributesFilterV1" class="com.ta.petro.core.filter.Europe1AttributesFilter">
 		<property name="baseStoreService" ref="baseStoreService" />
 		<property name="sessionService" ref="sessionService" />
 	</bean>
 
-	<bean id="commerceWebServicesSessionCurrencyFilterV1" class="com.ta.petro.filter.SessionCurrencyFilter">
+	<bean id="commerceWebServicesSessionCurrencyFilterV1" class="com.ta.petro.core.filter.SessionCurrencyFilter">
 		<property name="contextInformationLoader" ref="wsContextInformationLoaderV1" />
 	</bean>
 
-	<bean id="commerceWebServicesSessionLanguageFilterV1" class="com.ta.petro.filter.SessionLanguageFilter">
+	<bean id="commerceWebServicesSessionLanguageFilterV1" class="com.ta.petro.core.filter.SessionLanguageFilter">
 		<property name="contextInformationLoader" ref="wsContextInformationLoaderV1"/>
 		<property name="i18nService" ref="i18nService"/>
 		<property name="enableLanguageFallback" value="true"/>
 	</bean>
 
 	<alias alias="baseSiteCheckFilterV1" name="defaultBaseSiteCheckFilterV1" />
-	<bean id="defaultBaseSiteCheckFilterV1" class="com.ta.petro.filter.BaseSiteCheckFilter">
+	<bean id="defaultBaseSiteCheckFilterV1" class="com.ta.petro.core.filter.BaseSiteCheckFilter">
 		<property name="baseSiteService" ref="baseSiteService" />
 		<property name="cartService" ref="cartService" />
 	</bean>
 
-	<bean id="commerceWebServicesConsentFilterV1" class="com.ta.petro.filter.ConsentFilter">
+	<bean id="commerceWebServicesConsentFilterV1" class="com.ta.petro.core.filter.ConsentFilter">
 		<property name="userFacade" ref="userFacade"/>
 		<property name="baseSiteService" ref="baseSiteService"/>
 		<property name="anonymousConsentFacade" ref="anonymousConsentFacade"/>
@@ -76,7 +76,7 @@
 		<property name="populatingConsentsEnabled" value="false"/>
 	</bean>
 
-	<bean id="guestRoleFilterV1" class="com.ta.petro.auth.GuestRoleFilter">
+	<bean id="guestRoleFilterV1" class="com.ta.petro.core.auth.GuestRoleFilter">
 		<property name="authenticationEventPublisher">
 			<bean class="org.springframework.security.authentication.DefaultAuthenticationEventPublisher" />
 		</property>
@@ -93,7 +93,7 @@
 	</bean>
 
 	<alias name="defaultWsContextInformationLoaderV1" alias="wsContextInformationLoaderV1" />
-	<bean id="defaultWsContextInformationLoaderV1" class="com.ta.petro.context.impl.DefaultContextInformationLoader">
+	<bean id="defaultWsContextInformationLoaderV1" class="com.ta.petro.core.context.impl.DefaultContextInformationLoader">
 		<property name="baseSiteService" ref="baseSiteService" />
 		<property name="activateBaseSiteInSessionStrategy" ref="activateBaseSiteInSessionStrategy" />
 		<property name="configurationService" ref="configurationService" />

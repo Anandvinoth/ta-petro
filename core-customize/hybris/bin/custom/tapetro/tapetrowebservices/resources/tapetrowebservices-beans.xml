@@ -4,48 +4,48 @@
 -->
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="beans.xsd">
 
-	<enum class="com.ta.petro.populator.options.PaymentInfoOption">
+	<enum class="com.ta.petro.core.populator.options.PaymentInfoOption">
 		<value>BASIC</value>
 		<value>BILLING_ADDRESS</value>
 	</enum>
 
 	<!--auth response  -->
-	<bean class="com.ta.petro.auth.data.LogoutResponse">
+	<bean class="com.ta.petro.core.auth.data.LogoutResponse">
 		<property name="success" type="boolean"/>
 	</bean>
 
 	<!-- storesession data -->
 
-	<bean class="com.ta.petro.storesession.data.LanguageDataList">
+	<bean class="com.ta.petro.core.storesession.data.LanguageDataList">
 		<property name="languages"
 		          type="java.util.Collection&lt;de.hybris.platform.commercefacades.storesession.data.LanguageData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.storesession.data.CurrencyDataList">
+	<bean class="com.ta.petro.core.storesession.data.CurrencyDataList">
 		<property name="currencies"
 		          type="java.util.Collection&lt;de.hybris.platform.commercefacades.storesession.data.CurrencyData>"/>
 	</bean>
 
 	<!-- order data -->
 
-	<bean class="com.ta.petro.order.data.CartDataList">
+	<bean class="com.ta.petro.core.order.data.CartDataList">
 		<property name="carts"
 		          type="java.util.List&lt;de.hybris.platform.commercefacades.order.data.CartData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.order.data.OrderEntryDataList">
+	<bean class="com.ta.petro.core.order.data.OrderEntryDataList">
 		<property name="orderEntries"
 		          type="java.util.List&lt;de.hybris.platform.commercefacades.order.data.OrderEntryData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.order.data.CardTypeDataList">
+	<bean class="com.ta.petro.core.order.data.CardTypeDataList">
 		<property name="cardTypes"
 		          type="java.util.List&lt;de.hybris.platform.commercefacades.order.data.CardTypeData>"/>
 	</bean>
 
 	<!-- product data -->
 
-	<bean class="com.ta.petro.product.data.ProductDataList">
+	<bean class="com.ta.petro.core.product.data.ProductDataList">
 		<property name="products"
 		          type="java.util.List&lt;de.hybris.platform.commercefacades.product.data.ProductData>"/>
 		<property name="catalog" type="String"/>
@@ -55,128 +55,128 @@
 		<property name="currentPage" type="int"/>
 	</bean>
 
-	<bean class="com.ta.petro.product.data.PromotionDataList">
+	<bean class="com.ta.petro.core.product.data.PromotionDataList">
 		<property name="promotions"
 		          type="java.util.List&lt;de.hybris.platform.commercefacades.product.data.PromotionData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.product.data.PromotionResultDataList">
+	<bean class="com.ta.petro.core.product.data.PromotionResultDataList">
 		<property name="promotions"
 		          type="java.util.List&lt;de.hybris.platform.commercefacades.product.data.PromotionResultData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.product.data.ReviewDataList">
+	<bean class="com.ta.petro.core.product.data.ReviewDataList">
 		<property name="reviews" type="java.util.List&lt;de.hybris.platform.commercefacades.product.data.ReviewData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.product.data.SuggestionDataList">
+	<bean class="com.ta.petro.core.product.data.SuggestionDataList">
 		<property name="suggestions"
 		          type="java.util.List&lt;de.hybris.platform.commercefacades.product.data.SuggestionData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.product.data.ProductFutureStocksData">
+	<bean class="com.ta.petro.core.product.data.ProductFutureStocksData">
 		<property name="productCode" type="String"/>
 		<property name="futureStocks"
 		          type="java.util.List&lt;de.hybris.platform.commercefacades.product.data.FutureStockData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.product.data.ProductFutureStocksDataList">
+	<bean class="com.ta.petro.core.product.data.ProductFutureStocksDataList">
 		<property name="productFutureStocks"
-		          type="java.util.List&lt;com.ta.petro.product.data.ProductFutureStocksData>"/>
+		          type="java.util.List&lt;com.ta.petro.core.product.data.ProductFutureStocksData>"/>
 	</bean>
 	
 	<!-- user data -->
 
-	<bean class="com.ta.petro.user.data.TitleDataList">
+	<bean class="com.ta.petro.core.user.data.TitleDataList">
 		<property name="titles" type="java.util.List&lt;de.hybris.platform.commercefacades.user.data.TitleData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.user.data.CountryDataList">
+	<bean class="com.ta.petro.core.user.data.CountryDataList">
 		<property name="countries" type="java.util.List&lt;de.hybris.platform.commercefacades.user.data.CountryData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.user.data.RegionDataList">
+	<bean class="com.ta.petro.core.user.data.RegionDataList">
 		<property name="regions"
 		          type="java.util.List&lt;de.hybris.platform.commercefacades.user.data.RegionData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.user.data.AddressDataList">
+	<bean class="com.ta.petro.core.user.data.AddressDataList">
 		<property name="addresses" type="java.util.List&lt;de.hybris.platform.commercefacades.user.data.AddressData>"/>
 	</bean>
 
 	<!-- voucher data -->
-	<bean class="com.ta.petro.voucher.data.VoucherDataList">
+	<bean class="com.ta.petro.core.voucher.data.VoucherDataList">
 		<property name="vouchers"
 		          type="java.util.List&lt;de.hybris.platform.commercefacades.voucher.data.VoucherData>"/>
 	</bean>
 
 	<!-- validation data -->
-	<bean class="com.ta.petro.validation.data.AddressValidationData">
+	<bean class="com.ta.petro.core.validation.data.AddressValidationData">
 		<property name="errors" type="de.hybris.platform.webservicescommons.dto.error.ErrorListWsDTO"/>
 		<property name="decision" type="String"/>
 		<property name="suggestedAddressesList"
-		          type="com.ta.petro.user.data.AddressDataList"/>
+		          type="com.ta.petro.core.user.data.AddressDataList"/>
 	</bean>
 
-	<bean class="com.ta.petro.validation.data.CartVoucherValidationData">
+	<bean class="com.ta.petro.core.validation.data.CartVoucherValidationData">
 		<property name="subject" type="String" />
 	</bean>
 
-	<bean class="com.ta.petro.validation.data.CartVoucherValidationDataList">
+	<bean class="com.ta.petro.core.validation.data.CartVoucherValidationDataList">
 		<property name="CartVoucherValidationDataList"
-				  type="java.util.List&lt;com.ta.petro.validation.data.CartVoucherValidationData>"/>
+				  type="java.util.List&lt;com.ta.petro.core.validation.data.CartVoucherValidationData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.user.data.LoginChangeResponse">
+	<bean class="com.ta.petro.core.user.data.LoginChangeResponse">
 		<property name="success" type="boolean"/>
 	</bean>
 
-	<bean class="com.ta.petro.user.data.PasswordRestoreResponse">
+	<bean class="com.ta.petro.core.user.data.PasswordRestoreResponse">
 		<property name="success" type="boolean"/>
 	</bean>
 
 	<!-- update queues -->
 
-	<bean class="com.ta.petro.queues.data.ProductExpressUpdateElementData">
+	<bean class="com.ta.petro.core.queues.data.ProductExpressUpdateElementData">
 		<property name="code" type="String"/>
 		<property name="catalogId" type="String"/>
 		<property name="catalogVersion" type="String"/>
 	</bean>
 
-	<bean class="com.ta.petro.queues.data.ProductExpressUpdateElementDataList">
+	<bean class="com.ta.petro.core.queues.data.ProductExpressUpdateElementDataList">
 		<property name="productExpressUpdateElements"
-		          type="java.util.List&lt;com.ta.petro.queues.data.ProductExpressUpdateElementData>"/>
+		          type="java.util.List&lt;com.ta.petro.core.queues.data.ProductExpressUpdateElementData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.queues.data.OrderStatusUpdateElementData">
+	<bean class="com.ta.petro.core.queues.data.OrderStatusUpdateElementData">
 		<property name="code" type="String"/>
 		<property name="status" type="String"/>
 		<property name="baseSiteId" type="String"/>
 	</bean>
 
-	<bean class="com.ta.petro.queues.data.OrderStatusUpdateElementDataList">
+	<bean class="com.ta.petro.core.queues.data.OrderStatusUpdateElementDataList">
 		<property name="orderStatusUpdateElements"
-		          type="java.util.List&lt;com.ta.petro.queues.data.OrderStatusUpdateElementData>"/>
+		          type="java.util.List&lt;com.ta.petro.core.queues.data.OrderStatusUpdateElementData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.store.data.StoreCountListData">
+	<bean class="com.ta.petro.core.store.data.StoreCountListData">
 		<property name="countriesAndRegionsStoreCount"
 		          type="java.util.List&lt;de.hybris.platform.commercefacades.store.data.StoreCountData>"/>
 	</bean>
 
 	<!-- Consent management -->
-	<bean class="com.ta.petro.consent.data.ConsentTemplateDataList">
+	<bean class="com.ta.petro.core.consent.data.ConsentTemplateDataList">
 		<property name="consentTemplates"
 		          type="java.util.List&lt;de.hybris.platform.commercefacades.consent.data.ConsentTemplateData>"/>
 	</bean>
 
 	<!-- Base Sites -->
-	<bean class="com.ta.petro.basesite.data.BaseSiteDataList">
+	<bean class="com.ta.petro.core.basesite.data.BaseSiteDataList">
 		<property name="baseSites"
 		          type="java.util.List&lt;de.hybris.platform.commercefacades.basesite.data.BaseSiteData>"/>
 	</bean>
 
-	<bean class="com.ta.petro.returns.data.ReturnRequestsData">
+	<bean class="com.ta.petro.core.returns.data.ReturnRequestsData">
 		<property name="returnRequests"
 		          type="java.util.List&lt;de.hybris.platform.ordermanagementfacades.returns.data.ReturnRequestData>"/>
 		<property name="sorts" type="java.util.List&lt;de.hybris.platform.commerceservices.search.pagedata.SortData>"/>

@@ -22,25 +22,25 @@
 	</bean>
 
 	<!-- Orika : Mappers -->
-	<bean class="com.ta.petro.mapping.mappers.AddressValidationDataMapper"
+	<bean class="com.ta.petro.core.mapping.mappers.AddressValidationDataMapper"
 	      parent="abstractCustomMapper"/>
-	<bean class="com.ta.petro.mapping.mappers.SpellingSuggestionMapper"
+	<bean class="com.ta.petro.core.mapping.mappers.SpellingSuggestionMapper"
 	      parent="abstractCustomMapper"/>
-	<bean class="com.ta.petro.mapping.mappers.CCPaymentInfoDataMapper"
+	<bean class="com.ta.petro.core.mapping.mappers.CCPaymentInfoDataMapper"
 	      parent="abstractCustomMapper"/>
-	<bean class="com.ta.petro.mapping.mappers.ImageUrlMapper"
+	<bean class="com.ta.petro.core.mapping.mappers.ImageUrlMapper"
 	      parent="abstractCustomMapper"/>
-	<bean class="com.ta.petro.mapping.mappers.StockDataMapper"
+	<bean class="com.ta.petro.core.mapping.mappers.StockDataMapper"
 	      parent="abstractCustomMapper"/>
 
 	<!-- Orika : Converters -->
-	<bean class="com.ta.petro.mapping.converters.StockLevelStatusConverter"/>
-	<bean class="com.ta.petro.mapping.converters.OrderStatusConverter"/>
-	<bean class="com.ta.petro.mapping.converters.ConsignmentStatusConverter"/>
-	<bean class="com.ta.petro.mapping.converters.DeliveryStatusConverter"/>
-	<bean class="com.ta.petro.mapping.converters.StatusSummaryConverter"/>
-	<bean class="com.ta.petro.mapping.converters.ProductReferenceTypeEnumConverter"/>
-	<bean class="com.ta.petro.mapping.converters.VoucherConverter">
+	<bean class="com.ta.petro.core.mapping.converters.StockLevelStatusConverter"/>
+	<bean class="com.ta.petro.core.mapping.converters.OrderStatusConverter"/>
+	<bean class="com.ta.petro.core.mapping.converters.ConsignmentStatusConverter"/>
+	<bean class="com.ta.petro.core.mapping.converters.DeliveryStatusConverter"/>
+	<bean class="com.ta.petro.core.mapping.converters.StatusSummaryConverter"/>
+	<bean class="com.ta.petro.core.mapping.converters.ProductReferenceTypeEnumConverter"/>
+	<bean class="com.ta.petro.core.mapping.converters.VoucherConverter">
 		<property name="dataMapper" ref="dataMapper" />
 		<property name="voucherFacade" ref="voucherFacade" />
 	</bean>

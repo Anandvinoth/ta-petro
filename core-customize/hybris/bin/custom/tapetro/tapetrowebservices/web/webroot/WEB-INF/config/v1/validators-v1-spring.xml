@@ -77,7 +77,7 @@
 
 	<alias name="defaultAddressValidator" alias="addressValidator"/>
 	<bean id="defaultAddressValidator"
-	      class="com.ta.petro.validator.CountryAwareAddressValidator">
+	      class="com.ta.petro.core.validator.CountryAwareAddressValidator">
 		<property name="commonAddressValidator" ref="commonAddressValidator"/>
 		<property name="countrySpecificAddressValidators">
 			<map>
@@ -121,16 +121,16 @@
 
 	<alias name="defaultDeliveryAddressValidator" alias="deliveryAddressValidator"/>
 	<bean id="defaultDeliveryAddressValidator"
-	      class="com.ta.petro.validator.DeliveryAddressValidator">
+	      class="com.ta.petro.core.validator.DeliveryAddressValidator">
 	</bean>
 
 	<alias name="defaultPlaceOrderCartValidator" alias="placeOrderCartValidator"/>
 	<bean id="defaultPlaceOrderCartValidator"
-	      class="com.ta.petro.validator.PlaceOrderCartValidator">
+	      class="com.ta.petro.core.validator.PlaceOrderCartValidator">
 	</bean>
 
 	<bean id="pointOfServiceValidator"
-	      class="com.ta.petro.validator.PointOfServiceValidator">
+	      class="com.ta.petro.core.validator.PointOfServiceValidator">
 		<property name="pointOfServiceService" ref="pointOfServiceService"/>
 	</bean>
 

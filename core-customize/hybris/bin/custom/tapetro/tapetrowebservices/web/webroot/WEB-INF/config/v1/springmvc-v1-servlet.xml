@@ -15,7 +15,7 @@
 		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<context:component-scan
-		base-package="com.ta.petro.v1, com.ta.petro.auth, com.ta.petro.context, com.ta.petro.conv, com.ta.petro.errors, com.ta.petro.exceptions, com.ta.petro.filter, com.ta.petro.formatters, com.ta.petro.oauth2, com.ta.petro.resolver, com.ta.petro.util.ws, com.ta.petro.xstream"
+		base-package="com.ta.petro.core.v1, com.ta.petro.core.auth, com.ta.petro.core.context, com.ta.petro.core.conv, com.ta.petro.core.errors, com.ta.petro.core.exceptions, com.ta.petro.core.filter, com.ta.petro.core.formatters, com.ta.petro.core.oauth2, com.ta.petro.core.resolver, com.ta.petro.core.util.ws, com.ta.petro.core.xstream"
 		scope-resolver="de.hybris.platform.spring.IgnoreTenantScopeMetadataResolver" />
 
 	<security:global-method-security order="-2147483648" secured-annotations="enabled" pre-post-annotations="enabled" proxy-target-class="true"/>
@@ -26,9 +26,9 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<bean id="cwsSearchQueryCodec" class="com.ta.petro.util.ws.impl.DefaultSearchQueryCodec" />
+	<bean id="cwsSearchQueryCodec" class="com.ta.petro.core.util.ws.impl.DefaultSearchQueryCodec" />
 
-	<bean id="addressDataErrorsPopulator" class="com.ta.petro.populator.AddressDataErrorsPopulator">
+	<bean id="addressDataErrorsPopulator" class="com.ta.petro.core.populator.AddressDataErrorsPopulator">
 		<constructor-arg>
 			<map>
 				<entry key="addressline1" value="line1" />

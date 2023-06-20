@@ -15,7 +15,7 @@
     <!-- Security OAuth2 -->
 
     <beans>
-        <bean id="hybrisUserFilter" class="com.ta.petro.oauth2.HybrisOauth2UserFilter"/>
+        <bean id="hybrisUserFilter" class="com.ta.petro.core.oauth2.HybrisOauth2UserFilter"/>
 
         <authentication-manager alias="authenticationManager" xmlns="http://www.springframework.org/schema/security">
             <authentication-provider ref="wsAuthenticationProvider" />
@@ -40,7 +40,7 @@
         <bean id="webSecurityAccessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
             <constructor-arg name="decisionVoters">
                 <list>
-                    <bean class="com.ta.petro.oauth2.OAuthClientVoter"/>
+                    <bean class="com.ta.petro.core.oauth2.OAuthClientVoter"/>
                     <bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter"/>
                     <bean id="authenticatedVoter" class="org.springframework.security.access.vote.AuthenticatedVoter"/>
                 </list>
@@ -71,7 +71,7 @@
                     <bean class="org.springframework.security.access.prepost.PreInvocationAuthorizationAdviceVoter">
                         <constructor-arg ref="expressionBasedPreInvocationAdvice"/>
                     </bean>
-                    <bean class="com.ta.petro.oauth2.OAuthClientVoter"/>
+                    <bean class="com.ta.petro.core.oauth2.OAuthClientVoter"/>
                     <bean class="org.springframework.security.access.vote.RoleVoter"/>
                     <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
                 </list>

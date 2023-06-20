@@ -61,7 +61,7 @@
 	Turn it on only if you need it.
 	<filter>
 		<filter-name>oauthRedirectionFilter</filter-name>
-		<filter-class>com.ta.petro.request.redirection.OAuthRedirectionFilter</filter-class>
+		<filter-class>com.ta.petro.core.request.redirection.OAuthRedirectionFilter</filter-class>
 	</filter>
 
 	<filter-mapping>
@@ -132,7 +132,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				com.ta.petro.v1.config.WebConfig
+				com.ta.petro.core.v1.config.WebConfig
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
@@ -213,7 +213,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				com.ta.petro.v2.config.WebConfig
+				com.ta.petro.core.v2.config.WebConfig
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>

@@ -81,7 +81,7 @@
 
 	<alias name="defaultAddressValidator" alias="addressValidator"/>
 	<bean id="defaultAddressValidator"
-	      class="com.ta.petro.validator.CountryAwareAddressValidator">
+	      class="com.ta.petro.core.validator.CountryAwareAddressValidator">
 		<property name="commonAddressValidator" ref="commonAddressValidator"/>
 		<property name="countrySpecificAddressValidators">
 			<map>
@@ -122,27 +122,27 @@
 
 	<alias name="defaultDeliveryAddressValidator" alias="deliveryAddressValidator"/>
 	<bean id="defaultDeliveryAddressValidator"
-	      class="com.ta.petro.validator.DeliveryAddressValidator">
+	      class="com.ta.petro.core.validator.DeliveryAddressValidator">
 	</bean>
 
 	<alias name="defaultCartVoucherValidator" alias="cartVoucherValidator"/>
 	<bean id="defaultCartVoucherValidator"
-		  class="com.ta.petro.validator.CartVoucherValidator">
+		  class="com.ta.petro.core.validator.CartVoucherValidator">
 		<constructor-arg ref="voucherFacade" />
 	</bean>
 
 	<alias name="defaultPlaceOrderCartValidator" alias="placeOrderCartValidator"/>
 	<bean id="defaultPlaceOrderCartValidator"
-	      class="com.ta.petro.validator.PlaceOrderCartValidator">
+	      class="com.ta.petro.core.validator.PlaceOrderCartValidator">
 	</bean>
 
 	<bean id="pointOfServiceValidator"
-	      class="com.ta.petro.validator.PointOfServiceValidator">
+	      class="com.ta.petro.core.validator.PointOfServiceValidator">
 		<property name="pointOfServiceService" ref="pointOfServiceService"/>
 	</bean>
 
 	<alias name="defaultReviewDTOValidator" alias="reviewDTOValidator"/>
-	<bean id="defaultReviewDTOValidator" class="com.ta.petro.validator.ReviewDTOValidator"/>
+	<bean id="defaultReviewDTOValidator" class="com.ta.petro.core.validator.ReviewDTOValidator"/>
 
 	<alias name="defaultOrderEntryCreateValidator" alias="orderEntryCreateValidator"/>
 	<bean id="defaultOrderEntryCreateValidator"
@@ -178,7 +178,7 @@
 	</bean>
 
 	<bean id="pointOfServiceInOrderEntryValidator"
-	      class="com.ta.petro.validator.PointOfServiceValidator">
+	      class="com.ta.petro.core.validator.PointOfServiceValidator">
 		<property name="pointOfServiceService" ref="pointOfServiceService"/>
 		<property name="fieldPath" value="deliveryPointOfService.name"/>
 	</bean>
@@ -215,7 +215,7 @@
 
 	<alias name="defaultAddressDTOValidator" alias="addressDTOValidator"/>
 	<bean id="defaultAddressDTOValidator"
-	      class="com.ta.petro.validator.CountryAwareAddressDTOValidator">
+	      class="com.ta.petro.core.validator.CountryAwareAddressDTOValidator">
 		<property name="commonAddressValidator" ref="commonAddressValidator"/>
 		<property name="countrySpecificAddressValidators">
 			<map>
@@ -227,7 +227,7 @@
 
 	<alias name="defaultPaymentDetailsDTOValidator" alias="paymentDetailsDTOValidator"/>
 	<bean id="defaultPaymentDetailsDTOValidator"
-	      class="com.ta.petro.validator.PaymentDetailsDTOValidator">
+	      class="com.ta.petro.core.validator.PaymentDetailsDTOValidator">
 		<property name="paymentAddressValidator" ref="paymentAddressValidator"/>
 	</bean>
 
@@ -252,7 +252,7 @@
 
 	<alias name="defaultPrincipalListDTOValidator" alias="principalListDTOValidator"/>
 	<bean id="defaultPrincipalListDTOValidator"
-	      class="com.ta.petro.validator.PrincipalListDTOValidator">
+	      class="com.ta.petro.core.validator.PrincipalListDTOValidator">
 		<property name="canBeEmpty" value="false"/>
 		<property name="userMatchingService" ref="userMatchingService"/>
 	</bean>
@@ -265,7 +265,7 @@
 				<bean class="de.hybris.platform.webservicescommons.validators.FieldNotEmptyValidator">
 					<property name="fieldPath" value="uid"/>
 				</bean>
-				<bean class="com.ta.petro.validator.PrincipalListDTOValidator">
+				<bean class="com.ta.petro.core.validator.PrincipalListDTOValidator">
 					<property name="fieldPath" value="members"/>
 					<property name="userMatchingService" ref="userMatchingService"/>
 				</bean>
@@ -375,7 +375,7 @@
 				<bean class="de.hybris.platform.webservicescommons.validators.FieldNotEmptyValidator" >
 					<property name="fieldPath" value="uid" />
 				</bean >
-				<bean class="com.ta.petro.validator.PrincipalListDTOValidator" >
+				<bean class="com.ta.petro.core.validator.PrincipalListDTOValidator" >
 					<property name="fieldPath" value="members" />
 					<property name="userMatchingService" ref="wsUserMatchingService" />
 				</bean >
@@ -385,21 +385,21 @@
 
 	<alias name="defaultReturnRequestEntryInputListDTOValidator" alias="returnRequestEntryInputListDTOValidator"/>
 	<bean id="defaultReturnRequestEntryInputListDTOValidator"
-		  class="com.ta.petro.validator.ReturnRequestEntryInputListDTOValidator"/>
+		  class="com.ta.petro.core.validator.ReturnRequestEntryInputListDTOValidator"/>
 
 	<alias name="defaultCancellationRequestEntryInputListDTOValidator" alias="cancellationRequestEntryInputListDTOValidator"/>
 	<bean id="defaultCancellationRequestEntryInputListDTOValidator"
-		  class="com.ta.petro.validator.CancellationRequestEntryInputListDTOValidator"/>
+		  class="com.ta.petro.core.validator.CancellationRequestEntryInputListDTOValidator"/>
 
 	<alias name="defaultStockValidator" alias="stockValidator"/>
 	<bean id="defaultStockValidator"
-		  class="com.ta.petro.validator.DefaultStockValidator">
+		  class="com.ta.petro.core.validator.DefaultStockValidator">
 		<constructor-arg name="commerceStockFacade" ref="commerceStockFacade"/>
 	</bean>
 
 	<alias name="defaultStockPOSValidator" alias="stockPOSValidator"/>
 	<bean id="defaultStockPOSValidator"
-		  class="com.ta.petro.validator.DefaultStockPOSValidator">
+		  class="com.ta.petro.core.validator.DefaultStockPOSValidator">
 		<constructor-arg name="commerceStockFacade" ref="commerceStockFacade"/>
 	</bean>
 
@@ -413,7 +413,7 @@
 		</property>
 	</bean>
 
-	<bean class="com.ta.petro.validator.PointOfServiceValidator"
+	<bean class="com.ta.petro.core.validator.PointOfServiceValidator"
 		  name="pointOfServiceValidatorForUserWsDTO">
 		<property name="pointOfServiceService" ref="pointOfServiceService"/>
 		<property name="fieldPath" value="defaultPointOfServiceName"/>

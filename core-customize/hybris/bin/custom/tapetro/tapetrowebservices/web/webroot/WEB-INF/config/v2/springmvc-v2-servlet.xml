@@ -21,7 +21,7 @@
 
     <context:annotation-config/>
     <context:component-scan
-            base-package="com.ta.petro.v2, com.ta.petro.auth, com.ta.petro.context, com.ta.petro.conv, com.ta.petro.errors, com.ta.petro.exceptions, com.ta.petro.filter, com.ta.petro.formatters, com.ta.petro.oauth2, com.ta.petro.resolver, com.ta.petro.util.ws, com.ta.petro.validator, com.ta.petro.xstream, de.hybris.platform.webservicescommons.mapping, de.hybris.platform.webservicescommons.swagger"
+            base-package="com.ta.petro.core.v2, com.ta.petro.core.auth, com.ta.petro.core.context, com.ta.petro.core.conv, com.ta.petro.core.errors, com.ta.petro.core.exceptions, com.ta.petro.core.filter, com.ta.petro.core.formatters, com.ta.petro.core.oauth2, com.ta.petro.core.resolver, com.ta.petro.core.util.ws, com.ta.petro.core.validator, com.ta.petro.core.xstream, de.hybris.platform.webservicescommons.mapping, de.hybris.platform.webservicescommons.swagger"
             scope-resolver="de.hybris.platform.spring.IgnoreTenantScopeMetadataResolver"/>
 
     <cache:annotation-driven cache-manager="compositeWsCacheManager" key-generator="commerceCacheKeyGenerator"/>
@@ -52,10 +52,10 @@
     </bean>
 
     <bean id="cwsSearchQueryCodec"
-          class="com.ta.petro.util.ws.impl.DefaultSearchQueryCodec"/>
+          class="com.ta.petro.core.util.ws.impl.DefaultSearchQueryCodec"/>
 
     <bean id="addressDataErrorsPopulator"
-          class="com.ta.petro.populator.AddressDataErrorsPopulator">
+          class="com.ta.petro.core.populator.AddressDataErrorsPopulator">
         <constructor-arg>
             <map>
                 <entry key="addressline1" value="line1"/>

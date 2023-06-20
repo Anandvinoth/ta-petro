@@ -16,7 +16,7 @@
 
 	<context:annotation-config/>
 	<context:component-scan
-			base-package="com.ta.petro.validator, com.ta.petro.populator"
+			base-package="com.ta.petro.core.validator, com.ta.petro.core.populator"
 			scope-resolver="de.hybris.platform.spring.IgnoreTenantScopeMetadataResolver"/>
 
 	<bean id="webLazyInitOverrideBeanFactoryPostProcessor" parent="lazyInitOverrideBeanFactoryPostProcessor" />
@@ -26,14 +26,14 @@
 	<bean id="mapMergeBeanPostProcessor"
 	      class="de.hybris.platform.spring.config.MapMergeDirectiveBeanPostProcessor"/>
 	      
-	<bean id="commerceWebServicesSaveCartRestorationHook" class="com.ta.petro.cart.hooks.CommerceWebServicesSaveCartRestorationHook" />
+	<bean id="commerceWebServicesSaveCartRestorationHook" class="com.ta.petro.core.cart.hooks.CommerceWebServicesSaveCartRestorationHook" />
 	 <bean id="commerceWebServicesSaveCartRestoreMethodHooksListMergeDirective" depends-on="commerceSaveCartRestorationMethodHooks" parent="listMergeDirective" >
 	     <property name="add" ref="commerceWebServicesSaveCartRestorationHook" />
 	 </bean>
 
 	<alias name="defaultPaymentProviderRequestSupportedStrategy" alias="paymentProviderRequestSupportedStrategy"/>
 	<bean id="defaultPaymentProviderRequestSupportedStrategy"
-		  class="com.ta.petro.request.support.impl.PaymentProviderRequestSupportedStrategy">
+		  class="com.ta.petro.core.request.support.impl.PaymentProviderRequestSupportedStrategy">
 		<property name="paymentProviderStrategy" ref="commercePaymentProviderStrategy"/>
 		<property name="unsupportedRequestMap">
 			<map>
